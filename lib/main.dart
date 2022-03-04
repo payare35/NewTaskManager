@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_task_manager/constants/constants.dart';
+import 'package:new_task_manager/screens/home_screen/root_home_screen.dart';
 import 'package:new_task_manager/screens/splash_screen/splash_screen.dart';
 
 void main() {
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
             900: Color.fromRGBO(44, 229, 218, 1),
           }),
           fontFamily: "Mulish"),
-      home: SplashScreen(),
+      home: RootHomeScreen(),
     );
   }
 }
