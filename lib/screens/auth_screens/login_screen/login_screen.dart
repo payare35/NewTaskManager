@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_task_manager/screens/auth_screens/register_screen/register_screen.dart';
+import 'package:new_task_manager/screens/home_screen/root_home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -82,7 +83,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(
                                       screenWidth / 10.35)))),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => RootHomeScreen()));
+                      },
                       child: Text(
                         "Login",
                         style: TextStyle(

@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
             900: Color.fromRGBO(44, 229, 218, 1),
           }),
           fontFamily: "Mulish"),
-      home: RootHomeScreen(),
+      home: SplashScreen(),
     );
   }
 }
