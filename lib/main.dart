@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:new_task_manager/constants/constants.dart';
 import 'package:new_task_manager/screens/home_screen/root_home_screen.dart';
@@ -5,6 +6,8 @@ import 'package:new_task_manager/screens/home_screen/sub_screens/view_individual
 import 'package:new_task_manager/screens/splash_screen/splash_screen.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -31,7 +34,19 @@ class MyApp extends StatelessWidget {
             900: Color.fromRGBO(44, 229, 218, 1),
           }),
           fontFamily: "Mulish"),
-      home: SplashScreen(),
+      home: FutureBuilder(
+          future: Firebase.initializeApp(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return SplashScreen();
+            } else {
+              return Scaffold(
+                body: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            }
+          }),
     );
   }
 }
